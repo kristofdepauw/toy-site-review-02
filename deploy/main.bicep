@@ -36,7 +36,7 @@ resource storageAccount 'Microsoft.Storage/storageAccounts@2019-06-01' = {
     }
   }
 }
-
+@description('module for app service.')
 module appService 'modules/appService.bicep' = {
   name: 'appService'
   params: {
@@ -44,7 +44,7 @@ module appService 'modules/appService.bicep' = {
     appServiceAppName: appServiceAppName
     environmentType: environmentType
     storageAccountName: storageAccount.name
-    processOrderQueuenName: processOrderQueueName
+    processOrderQueueName: processOrderQueueName
   }
 }
 
