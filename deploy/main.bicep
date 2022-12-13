@@ -26,11 +26,11 @@ resource storageAccount 'Microsoft.Storage/storageAccounts@2019-06-01' = {
   }
   kind: 'StorageV2'
   properties: {
-    accessTier: 'Hot'
+    accessTier: 'Hot' //a little bit of comment.
   }
   resource queueServices 'queueservices' = {
     name: 'default'
-
+    
     resource processOrderQueue 'queues' = {
       name: processOrderQueueName
     }
