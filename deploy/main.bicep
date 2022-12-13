@@ -26,17 +26,17 @@ resource storageAccount 'Microsoft.Storage/storageAccounts@2019-06-01' = {
   }
   kind: 'StorageV2'
   properties: {
-    accessTier: 'Hot'
+    accessTier: 'Hot' //a little bit of comment.
   }
   resource queueServices 'queueservices' = {
     name: 'default'
-
+    
     resource processOrderQueue 'queues' = {
       name: processOrderQueueName
     }
   }
 }
-
+@description('module for app service.')
 module appService 'modules/appService.bicep' = {
   name: 'appService'
   params: {
@@ -44,7 +44,7 @@ module appService 'modules/appService.bicep' = {
     appServiceAppName: appServiceAppName
     environmentType: environmentType
     storageAccountName: storageAccount.name
-    processOrderQueuenName: processOrderQueueName
+    processOrderQueueName: processOrderQueueName
   }
 }
 
